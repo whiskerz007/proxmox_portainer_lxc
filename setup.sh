@@ -55,7 +55,7 @@ msg "Installing Docker..."
 sh <(curl -sSL https://get.docker.com) &>/dev/null
 
 # Install Portainer
-msg "Installing Portainer..."
+msg "Installing Portainer 2x (portainer-ce)..."
 docker volume create portainer_data >/dev/null
 docker run -d \
   -p 8000:8000 \
@@ -65,7 +65,7 @@ docker run -d \
   --restart=always \
   -v /var/run/docker.sock:/var/run/docker.sock \
   -v portainer_data:/data \
-  portainer/portainer &>/dev/null
+  portainer/portainer-ce &>/dev/null
 
 # Install Watchtower
 msg "Installing Watchtower..."
